@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Consent Mode v2 — denegado por defecto hasta consentimiento -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+  // >>> Cuando tengas el ID de Google, descomenta y sustituye G-XXXXXXX / AW-XXXXXXX:
+  // (function(){var s=document.createElement('script');s.async=true;
+  //  s.src='https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX';
+  //  document.head.appendChild(s);})();
+  // gtag('js', new Date());
+  // gtag('config', 'G-XXXXXXX');
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Premium garden maintenance in Mallorca · Garden Solution</title>
@@ -333,6 +352,46 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; letter-
   .form-card, .review { padding: 32px 26px; }
   .topbar .brand .sub { display:none; }
 }
+/* ===== BANNER DE COOKIES ===== */
+.cookie-banner {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 1500;
+  background: var(--ink); color: rgba(251,248,242,0.88);
+  padding: 22px 6vw; box-shadow: 0 -8px 30px rgba(0,0,0,0.25);
+  display: none; transform: translateY(100%); transition: transform 0.45s cubic-bezier(.2,.7,.2,1);
+}
+.cookie-banner.show { display: block; transform: translateY(0); }
+.cookie-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+.cookie-text { flex: 1; min-width: 260px; font-family: 'Manrope'; font-weight: 300; font-size: 13.5px; line-height: 1.6; }
+.cookie-text strong { font-family: 'Cormorant Garamond'; font-weight: 600; font-size: 17px; color: var(--paper); display: block; margin-bottom: 5px; letter-spacing: 0.01em; }
+.cookie-text a { color: var(--gold-soft); text-decoration: underline; }
+.cookie-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.ck-btn { font-family: 'Manrope'; font-weight: 600; font-size: 12.5px; letter-spacing: 0.04em; padding: 12px 22px; border-radius: 100px; cursor: pointer; border: none; transition: all 0.25s ease; white-space: nowrap; }
+.ck-accept { background: var(--gold); color: var(--ink); }
+.ck-accept:hover { background: var(--gold-soft); transform: translateY(-1px); }
+.ck-reject { background: transparent; color: var(--paper); border: 1px solid rgba(251,248,242,0.4); }
+.ck-reject:hover { border-color: var(--paper); background: rgba(251,248,242,0.08); }
+.ck-config { background: transparent; color: rgba(251,248,242,0.7); border: none; text-decoration: underline; padding: 12px 14px; }
+.ck-config:hover { color: var(--paper); }
+/* Panel de configuración */
+.cookie-modal { position: fixed; inset: 0; z-index: 1600; background: rgba(15,15,13,0.6); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; padding: 20px; }
+.cookie-modal.show { display: flex; }
+.ck-panel { background: var(--paper); border-radius: 16px; max-width: 540px; width: 100%; padding: 38px 36px; max-height: 88vh; overflow-y: auto; box-shadow: 0 30px 70px rgba(0,0,0,0.4); }
+.ck-panel h3 { font-family: 'Cormorant Garamond'; font-size: 30px; color: var(--green); margin-bottom: 8px; }
+.ck-panel .ck-intro { font-family: 'Manrope'; font-weight: 300; font-size: 14px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 26px; }
+.ck-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 18px; padding: 20px 0; border-top: 1px solid var(--line); }
+.ck-row .ck-row-txt h4 { font-family: 'Cormorant Garamond'; font-size: 20px; color: var(--green); margin-bottom: 4px; }
+.ck-row .ck-row-txt p { font-family: 'Manrope'; font-weight: 300; font-size: 12.5px; color: var(--gray-soft); line-height: 1.5; margin: 0; }
+.ck-switch { position: relative; width: 46px; height: 26px; flex-shrink: 0; margin-top: 4px; }
+.ck-switch input { opacity: 0; width: 0; height: 0; }
+.ck-slider { position: absolute; inset: 0; background: var(--line); border-radius: 100px; transition: 0.3s; cursor: pointer; }
+.ck-slider::before { content: ''; position: absolute; height: 20px; width: 20px; left: 3px; top: 3px; background: #fff; border-radius: 50%; transition: 0.3s; }
+.ck-switch input:checked + .ck-slider { background: var(--green-soft); }
+.ck-switch input:checked + .ck-slider::before { transform: translateX(20px); }
+.ck-switch input:disabled + .ck-slider { background: var(--green); opacity: 0.5; cursor: not-allowed; }
+.ck-panel-actions { display: flex; gap: 10px; margin-top: 28px; flex-wrap: wrap; }
+.ck-panel-actions .ck-btn { flex: 1; min-width: 130px; text-align: center; }
+@media (max-width: 640px) { .cookie-inner { flex-direction: column; align-items: stretch; gap: 18px; } .cookie-actions { justify-content: space-between; } .ck-btn { flex: 1; text-align: center; } }
+
 </style>
 </head>
 <body>
@@ -677,6 +736,90 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; letter-
 <a href="https://wa.me/34621493977" class="wa-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
 </a>
+
+<!-- ===== BANNER DE COOKIES ===== -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Your privacy">
+  <div class="cookie-inner">
+    <div class="cookie-text">
+      <strong>Your privacy</strong>
+      This site uses first- and third-party cookies to analyse browsing and measure advertising campaigns. You can accept, reject or configure them. More information in the <a href="#">cookie policy</a>.
+    </div>
+    <div class="cookie-actions">
+      <button class="ck-btn ck-config" id="ckConfig">Configure</button>
+      <button class="ck-btn ck-reject" id="ckReject">Reject</button>
+      <button class="ck-btn ck-accept" id="ckAccept">Accept all</button>
+    </div>
+  </div>
+</div>
+<div class="cookie-modal" id="cookieModal" role="dialog" aria-modal="true" aria-label="Cookie preferences">
+  <div class="ck-panel">
+    <h3>Cookie preferences</h3>
+    <p class="ck-intro">Manage which cookies you allow. Technical cookies are required for the site to work and cannot be disabled.</p>
+    <div class="ck-row">
+      <div class="ck-row-txt"><h4>Necessary</h4><p>Essential for the basic functioning of the site. Always on.</p></div>
+      <label class="ck-switch"><input type="checkbox" checked disabled><span class="ck-slider"></span></label>
+    </div>
+    <div class="ck-row">
+      <div class="ck-row-txt"><h4>Analytics</h4><p>Allow us to measure how the site is used in order to improve it (e.g. Google Analytics).</p></div>
+      <label class="ck-switch"><input type="checkbox" id="ckAnalytics"><span class="ck-slider"></span></label>
+    </div>
+    <div class="ck-row">
+      <div class="ck-row-txt"><h4>Marketing</h4><p>Used to measure and optimise advertising campaigns (e.g. Google Ads).</p></div>
+      <label class="ck-switch"><input type="checkbox" id="ckMarketing"><span class="ck-slider"></span></label>
+    </div>
+    <div class="ck-panel-actions">
+      <button class="ck-btn ck-reject" id="ckSave">Save preferences</button>
+      <button class="ck-btn ck-accept" id="ckAcceptAll">Accept all</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY = 'mgs_cookie_consent';
+  var banner = document.getElementById('cookieBanner');
+  var modal  = document.getElementById('cookieModal');
+  function applyConsent(c){
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        'ad_storage':         c.marketing ? 'granted' : 'denied',
+        'ad_user_data':       c.marketing ? 'granted' : 'denied',
+        'ad_personalization': c.marketing ? 'granted' : 'denied',
+        'analytics_storage':  c.analytics ? 'granted' : 'denied'
+      });
+    }
+  }
+  function save(c){
+    try { localStorage.setItem(KEY, JSON.stringify(c)); } catch(e){}
+    applyConsent(c);
+    banner.classList.remove('show');
+    modal.classList.remove('show');
+  }
+  function getSaved(){
+    try { return JSON.parse(localStorage.getItem(KEY)); } catch(e){ return null; }
+  }
+  var saved = getSaved();
+  if (saved) { applyConsent(saved); }
+  else { setTimeout(function(){ banner.classList.add('show'); }, 800); }
+
+  document.getElementById('ckAccept').onclick = function(){ save({necessary:true, analytics:true, marketing:true}); };
+  document.getElementById('ckReject').onclick = function(){ save({necessary:true, analytics:false, marketing:false}); };
+  document.getElementById('ckAcceptAll').onclick = function(){ save({necessary:true, analytics:true, marketing:true}); };
+  document.getElementById('ckConfig').onclick = function(){
+    var s = getSaved() || {};
+    document.getElementById('ckAnalytics').checked = !!s.analytics;
+    document.getElementById('ckMarketing').checked = !!s.marketing;
+    modal.classList.add('show');
+  };
+  document.getElementById('ckSave').onclick = function(){
+    save({
+      necessary:true,
+      analytics: document.getElementById('ckAnalytics').checked,
+      marketing: document.getElementById('ckMarketing').checked
+    });
+  };
+  modal.addEventListener('click', function(e){ if(e.target===modal) modal.classList.remove('show'); });
+})();
+</script>
 
 </body>
 </html>

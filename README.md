@@ -1,7 +1,7 @@
 # Mallorca Garden Solution — Landing (ES / EN)
 
-Landing publicitaria de mantenimiento de jardín premium en Mallorca.
-Bilingüe con URLs separadas para campañas de Google Ads por idioma.
+Landing publicitaria bilingüe de mantenimiento de jardín premium en Mallorca.
+URLs separadas por idioma para campañas de Google Ads.
 
 ## Estructura
 - `index.html` — versión española (URL: `/`)
@@ -13,11 +13,15 @@ Bilingüe con URLs separadas para campañas de Google Ads por idioma.
 - Campaña ES → `https://TU-DOMINIO.vercel.app/`
 - Campaña EN → `https://TU-DOMINIO.vercel.app/en`
 
-El selector de idioma (banderas ES | EN) arriba alterna entre ambas.
+## Cookies y consentimiento (RGPD)
+Banner de consentimiento previo con Google Consent Mode v2 en ambos idiomas.
+Por defecto NIEGA ad_storage, ad_user_data, ad_personalization y analytics_storage
+hasta que el usuario acepta. Botones: Aceptar / Rechazar / Configurar.
 
-## Despliegue (Vercel)
-Sitio estático. Framework Preset: **Other**. Sin build.
-Vercel lee `vercel.json` automáticamente y sirve `/en` sin la extensión .html.
+### ⚠️ Para activar Google Ads / Analytics
+En el `<head>` de `index.html` y `en.html` hay un bloque comentado con `G-XXXXXXX`.
+Descoméntalo y sustituye por tu ID real de medición (Ads: AW-XXXX / GA4: G-XXXX).
+El consentimiento ya está cableado: los tags solo cargarán tras aceptar.
 
 ## Contacto configurado
 - WhatsApp y llamada: 621 49 39 77
@@ -25,3 +29,4 @@ Vercel lee `vercel.json` automáticamente y sirve `/en` sin la extensión .html.
 
 ## Pendiente
 - Conectar el formulario a un destino real (ahora muestra confirmación demo, no envía).
+- Enlazar la política de cookies real (ahora el enlace apunta a `#`).
