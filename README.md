@@ -1,32 +1,27 @@
 # Mallorca Garden Solution — Landing (ES / EN)
 
-Landing publicitaria bilingüe de mantenimiento de jardín premium en Mallorca.
-URLs separadas por idioma para campañas de Google Ads.
+## URLs
+| Página | URL |
+|--------|-----|
+| Landing ES | `/` |
+| Landing EN | `/en` |
+| Gracias (conversión) | `/gracias` |
+| Privacidad | `/privacidad` |
+| Cookies | `/cookies` |
+| Aviso legal | `/aviso-legal` |
 
-## Estructura
-- `index.html` — versión española (URL: `/`)
-- `en.html` — versión inglesa (URL: `/en`)
-- `img/` — 5 imágenes del cliente (compartidas)
-- `vercel.json` — URLs limpias + ruta `/en`
+## Medición
+- Google Tag Manager: **GTM-MTQTXMLG** (instalado en todas las páginas)
+- Google Consent Mode v2: denegado por defecto (RGPD)
+- Banner de cookies: Aceptar / Rechazar / Configurar (ES y EN)
 
-## URLs para Google Ads
-- Campaña ES → `https://TU-DOMINIO.vercel.app/`
-- Campaña EN → `https://TU-DOMINIO.vercel.app/en`
+## Formulario
+- Servicio: Web3Forms · Access key: 0a8405c0-1367-4f05-a4d2-5ac23ddb5221
+- Al enviar → redirige a /gracias (conversión GTM)
 
-## Cookies y consentimiento (RGPD)
-Banner de consentimiento previo con Google Consent Mode v2 en ambos idiomas.
-Por defecto NIEGA ad_storage, ad_user_data, ad_personalization y analytics_storage
-hasta que el usuario acepta. Botones: Aceptar / Rechazar / Configurar.
+## Contacto
+- WhatsApp y móvil: 621 49 39 77
+- Fijo: 971 96 74 13
 
-### ⚠️ Para activar Google Ads / Analytics
-En el `<head>` de `index.html` y `en.html` hay un bloque comentado con `G-XXXXXXX`.
-Descoméntalo y sustituye por tu ID real de medición (Ads: AW-XXXX / GA4: G-XXXX).
-El consentimiento ya está cableado: los tags solo cargarán tras aceptar.
-
-## Contacto configurado
-- WhatsApp y llamada: 621 49 39 77
-- Llamada fija: 971 96 74 13
-
-## Pendiente
-- Conectar el formulario a un destino real (ahora muestra confirmación demo, no envía).
-- Enlazar la política de cookies real (ahora el enlace apunta a `#`).
+## Despliegue (Vercel)
+Framework Preset: **Other**. Sin build. Subir a GitHub y conectar en Vercel.

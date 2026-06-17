@@ -12,13 +12,14 @@
     'analytics_storage': 'denied',
     'wait_for_update': 500
   });
-  // >>> Cuando tengas el ID de Google, descomenta y sustituye G-XXXXXXX / AW-XXXXXXX:
-  // (function(){var s=document.createElement('script');s.async=true;
-  //  s.src='https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX';
-  //  document.head.appendChild(s);})();
-  // gtag('js', new Date());
-  // gtag('config', 'G-XXXXXXX');
 </script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MTQTXMLG');</script>
+<!-- End Google Tag Manager -->
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -395,6 +396,10 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; letter-
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTQTXMLG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <!-- ===== TOPBAR ===== -->
 <div class="topbar" id="topbar">
@@ -675,9 +680,10 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; letter-
           <label for="mensaje">¿Qué necesitas? <span style="text-transform:none;font-weight:300;color:var(--gray-soft);">(opcional)</span></label>
           <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos brevemente qué te preocupa de tu jardín…"></textarea>
         </div>
+        <input type="checkbox" name="botcheck" style="display:none">
         <button type="button" class="btn btn-gold submit" id="submitBtn">Solicitar mi visita técnica</button>
         <div class="legal">
-          Al enviar aceptas la <a href="#">política de privacidad</a>. Tus datos solo se usan para responder a tu solicitud.
+          Al enviar aceptas la <a href="/privacidad">política de privacidad</a>. Tus datos solo se usan para responder a tu solicitud.
         </div>
       </div>
       <div class="form-msg" id="formMsg">
@@ -700,7 +706,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; letter-
     </div>
     <div class="f-legal">
       <span>© 2026 Mallorca Garden Solution · Todos los derechos reservados</span>
-      <span>Aviso legal · Privacidad · Cookies</span>
+      <span><a href="/aviso-legal">Aviso legal</a> · <a href="/privacidad">Privacidad</a> · <a href="/cookies">Cookies</a></span>
     </div>
   </div>
 </footer>
@@ -719,16 +725,48 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; letter-
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
   // Form (demo) — sustituir por integración real / endpoint
-  document.getElementById('submitBtn').addEventListener('click', () => {
-    const nombre = document.getElementById('nombre').value.trim();
-    const tel = document.getElementById('telefono').value.trim();
-    const tipo = document.getElementById('tipo').value;
+  document.getElementById('submitBtn').addEventListener('click', async function() {
+    var nombre = document.getElementById('nombre').value.trim();
+    var tel    = document.getElementById('telefono').value.trim();
+    var tipo   = document.getElementById('tipo').value;
     if (!nombre || !tel || !tipo) {
       alert('Por favor, completa al menos nombre, teléfono y tipo de propiedad.');
       return;
     }
-    document.getElementById('formInner').style.display = 'none';
-    document.getElementById('formMsg').classList.add('show');
+    var btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Enviando…';
+
+    var data = {
+      access_key:    '0a8405c0-1367-4f05-a4d2-5ac23ddb5221',
+      subject:       'Nueva solicitud de visita técnica · Mallorca Garden Solution',
+      from_name:     'Landing Mallorca Garden Solution',
+      name:          nombre,
+      phone:         tel,
+      email:         document.getElementById('email').value.trim(),
+      property_type: document.getElementById('tipo').value,
+      zone:          document.getElementById('zona').value.trim(),
+      garden_size:   document.getElementById('superficie').value,
+      message:       document.getElementById('mensaje').value.trim()
+    };
+
+    try {
+      var res  = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+        body: JSON.stringify(data)
+      });
+      var json = await res.json();
+      if (json.success) {
+        window.location.href = window.location.origin + '/gracias';
+      } else {
+        throw new Error(json.message || 'Error');
+      }
+    } catch(e) {
+      btn.disabled = false;
+      btn.textContent = 'Solicitar mi visita técnica';
+      alert('Ha ocurrido un error al enviar. Por favor, inténtalo de nuevo o contáctanos por WhatsApp.');
+    }
   });
 </script>
 
@@ -742,7 +780,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; letter-
   <div class="cookie-inner">
     <div class="cookie-text">
       <strong>Tu privacidad</strong>
-      Esta web usa cookies propias y de terceros para analizar la navegación y medir campañas publicitarias. Puedes aceptarlas, rechazarlas o configurarlas. Más información en la <a href="#">política de cookies</a>.
+      Esta web usa cookies propias y de terceros para analizar la navegación y medir campañas publicitarias. Puedes aceptarlas, rechazarlas o configurarlas. Más información en la <a href="/cookies">política de cookies</a>.
     </div>
     <div class="cookie-actions">
       <button class="ck-btn ck-config" id="ckConfig">Configurar</button>

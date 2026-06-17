@@ -12,13 +12,14 @@
     'analytics_storage': 'denied',
     'wait_for_update': 500
   });
-  // >>> Cuando tengas el ID de Google, descomenta y sustituye G-XXXXXXX / AW-XXXXXXX:
-  // (function(){var s=document.createElement('script');s.async=true;
-  //  s.src='https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX';
-  //  document.head.appendChild(s);})();
-  // gtag('js', new Date());
-  // gtag('config', 'G-XXXXXXX');
 </script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MTQTXMLG');</script>
+<!-- End Google Tag Manager -->
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -395,6 +396,10 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; letter-
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTQTXMLG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <!-- ===== TOPBAR ===== -->
 <div class="topbar" id="topbar">
@@ -675,9 +680,10 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; letter-
           <label for="mensaje">What do you need? <span style="text-transform:none;font-weight:300;color:var(--gray-soft);">(optional)</span></label>
           <textarea id="mensaje" name="mensaje" placeholder="Tell us briefly what concerns you about your garden…"></textarea>
         </div>
+        <input type="checkbox" name="botcheck" style="display:none">
         <button type="button" class="btn btn-gold submit" id="submitBtn">Request my site visit</button>
         <div class="legal">
-          By submitting you accept the <a href="#">privacy policy</a>. Your details are used only to respond to your enquiry.
+          By submitting you accept the <a href="/privacidad">privacy policy</a>. Your details are used only to respond to your enquiry.
         </div>
       </div>
       <div class="form-msg" id="formMsg">
@@ -700,7 +706,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; letter-
     </div>
     <div class="f-legal">
       <span>© 2026 Mallorca Garden Solution · All rights reserved</span>
-      <span>Legal notice · Privacy · Cookies</span>
+      <span><a href="/aviso-legal">Legal notice</a> · <a href="/privacidad">Privacy</a> · <a href="/cookies">Cookies</a></span>
     </div>
   </div>
 </footer>
@@ -719,16 +725,48 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; letter-
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
   // Form (demo) — sustituir por integración real / endpoint
-  document.getElementById('submitBtn').addEventListener('click', () => {
-    const nombre = document.getElementById('nombre').value.trim();
-    const tel = document.getElementById('telefono').value.trim();
-    const tipo = document.getElementById('tipo').value;
+  document.getElementById('submitBtn').addEventListener('click', async function() {
+    var nombre = document.getElementById('nombre').value.trim();
+    var tel    = document.getElementById('telefono').value.trim();
+    var tipo   = document.getElementById('tipo').value;
     if (!nombre || !tel || !tipo) {
       alert('Please complete at least name, phone and property type.');
       return;
     }
-    document.getElementById('formInner').style.display = 'none';
-    document.getElementById('formMsg').classList.add('show');
+    var btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    var data = {
+      access_key:    '0a8405c0-1367-4f05-a4d2-5ac23ddb5221',
+      subject:       'New site visit request · Mallorca Garden Solution',
+      from_name:     'Landing Mallorca Garden Solution EN',
+      name:          nombre,
+      phone:         tel,
+      email:         document.getElementById('email').value.trim(),
+      property_type: document.getElementById('tipo').value,
+      zone:          document.getElementById('zona').value.trim(),
+      garden_size:   document.getElementById('superficie').value,
+      message:       document.getElementById('mensaje').value.trim()
+    };
+
+    try {
+      var res  = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+        body: JSON.stringify(data)
+      });
+      var json = await res.json();
+      if (json.success) {
+        window.location.href = window.location.origin + '/gracias';
+      } else {
+        throw new Error(json.message || 'Error');
+      }
+    } catch(e) {
+      btn.disabled = false;
+      btn.textContent = 'Request my site visit';
+      alert('An error occurred. Please try again or contact us via WhatsApp.');
+    }
   });
 </script>
 
@@ -742,7 +780,7 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; letter-
   <div class="cookie-inner">
     <div class="cookie-text">
       <strong>Your privacy</strong>
-      This site uses first- and third-party cookies to analyse browsing and measure advertising campaigns. You can accept, reject or configure them. More information in the <a href="#">cookie policy</a>.
+      This site uses first- and third-party cookies to analyse browsing and measure advertising campaigns. You can accept, reject or configure them. More information in the <a href="/cookies">cookie policy</a>.
     </div>
     <div class="cookie-actions">
       <button class="ck-btn ck-config" id="ckConfig">Configure</button>
