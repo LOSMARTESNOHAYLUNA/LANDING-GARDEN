@@ -468,7 +468,36 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; letter-
 .proyecto-info h3 { font-family: 'Cormorant Garamond'; font-size: 21px; color: var(--green); margin: 0; line-height: 1.2; }
 .btn-dossier { font-family: 'Manrope'; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--gold); padding: 11px 20px; border-radius: 100px; text-decoration: none; white-space: nowrap; flex-shrink: 0; transition: background .25s ease, transform .25s ease; }
 .btn-dossier:hover { background: var(--gold-soft); transform: translateY(-1px); }
-@media (max-width: 720px) { .proyectos-grid { grid-template-columns: 1fr; } .proyectos { padding: 84px 0; } }
+@media (max-width: 720px) { .proyectos-grid { grid-template-columns: 1fr; } .proyectos { padding: 84px 0; } .proyecto-info { flex-direction: column; align-items: flex-start; gap: 14px; } } .proyectos { padding: 84px 0; } }
+
+/* ===== BENEFICIOS ===== */
+.beneficios { padding: 130px 0; background: var(--green); color: var(--paper); }
+.beneficios-head { margin-bottom: 72px; position: relative; }
+.beneficios-head h2 { font-size: clamp(34px,4.5vw,60px); color: var(--paper); line-height:1.02; }
+.beneficios-head h2 .it { font-style:italic; color:var(--gold-soft); }
+.beneficios-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:0; }
+.bcard { padding:36px 28px 36px 0; border-top:1px solid rgba(251,248,242,0.18); }
+.bcard-num { font-family:'Manrope'; font-size:11px; font-weight:600; letter-spacing:0.2em; color:var(--gold-soft); margin-bottom:18px; }
+.bcard h3 { font-family:'Cormorant Garamond'; font-size:22px; color:var(--paper); margin-bottom:12px; line-height:1.15; }
+.bcard p { font-family:'Manrope'; font-weight:300; font-size:14px; color:rgba(251,248,242,0.72); line-height:1.65; margin:0; }
+@media (max-width:980px){ .beneficios-grid{grid-template-columns:repeat(2,1fr); gap:0 32px;} }
+@media (max-width:600px){ .beneficios{padding:84px 0;} .beneficios-grid{grid-template-columns:1fr;} .bcard{padding:28px 0;} } .beneficios-grid{grid-template-columns:1fr;} }
+
+/* ===== FAQ ===== */
+.faq { padding: 130px 0; background: var(--paper-soft); }
+.faq-head { margin-bottom: 64px; }
+.faq-head h2 { font-size: clamp(34px,4.5vw,60px); color:var(--green); line-height:1.02; }
+.faq-head h2 .it { font-style:italic; color:var(--gold); }
+.faq-list { max-width: 780px; }
+.faq-item { border-top: 1px solid var(--line); }
+.faq-item:last-child { border-bottom: 1px solid var(--line); }
+.faq-q { width:100%; display:flex; justify-content:space-between; align-items:center; gap:16px; background:none; border:none; cursor:pointer; padding:26px 0; text-align:left; font-family:'Cormorant Garamond'; font-size:22px; color:var(--green); line-height:1.2; transition:color .25s; }
+.faq-q:hover { color:var(--green-soft); }
+.faq-icon { font-family:'Manrope'; font-size:22px; font-weight:300; color:var(--gold); flex-shrink:0; transition:transform .3s ease; }
+.faq-q[aria-expanded="true"] .faq-icon { transform:rotate(45deg); }
+.faq-a { padding-bottom: 24px; }
+.faq-a p { font-family:'Manrope'; font-weight:300; font-size:15px; color:var(--ink-soft); line-height:1.75; margin:0; max-width:64ch; }
+@media (max-width:600px){ .faq{padding:84px 0;} .faq-q{font-size:18px; padding:18px 0;} .faq-a p{font-size:14px;} } .faq-q{font-size:19px;padding:20px 0;} }
 </style>
 </head>
 <body>
@@ -485,6 +514,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="./" class="active" aria-label="Español"><span class="flag">🇪🇸</span><span class="txt">ES</span></a>
       <span class="sep">|</span>
       <a href="./en" aria-label="English"><span class="flag">🇬🇧</span><span class="txt">EN</span></a>
+      <span class="sep">|</span>
+      <a href="./de" aria-label="Deutsch"><span class="flag">🇩🇪</span><span class="txt">DE</span></a>
     </div>
     <a href="https://wa.me/34621493977" class="wa-mini" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
@@ -724,6 +755,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<!-- ===== BENEFICIOS ===== -->
+<section class="beneficios">
+  <div class="wrap">
+    <div class="beneficios-head reveal">
+      <span class="eyebrow">Por qué invertir en paisajismo profesional</span>
+      <h2>Un jardín bien diseñado<br><span class="it">es mucho más que estética.</span></h2>
+    </div>
+    <div class="beneficios-grid">
+      <div class="bcard reveal">
+        <div class="bcard-num">01</div>
+        <h3>Aumenta el valor de la propiedad</h3>
+        <p>Un diseño de jardín bien planificado puede incrementar significativamente el valor de una villa o finca en Mallorca.</p>
+      </div>
+      <div class="bcard reveal">
+        <div class="bcard-num">02</div>
+        <h3>Mejora la calidad de vida</h3>
+        <p>Un entorno natural bien diseñado promueve la relajación y el bienestar. El jardín se convierte en una extensión del hogar.</p>
+      </div>
+      <div class="bcard reveal">
+        <div class="bcard-num">03</div>
+        <h3>Favorece la sostenibilidad</h3>
+        <p>Con especies autóctonas y sistemas de riego eficientes se reduce el impacto ambiental y el consumo de agua.</p>
+      </div>
+      <div class="bcard reveal">
+        <div class="bcard-num">04</div>
+        <h3>Optimización del espacio</h3>
+        <p>Un diseño profesional permite aprovechar al máximo cada rincón de la propiedad, desde zonas de sombra hasta accesos y terrazas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== CONFIANZA ===== -->
 <section class="confianza">
   <div class="wrap">
@@ -750,17 +813,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="rcard">
     <div class="stars">★★★★★</div>
     <blockquote>"Contratamos a Garden Solution para una tala de un pino centenario, poda de árboles y posterior recogida de sobrantes. Super contentos con el trabajo, los tiempos y la profesionalidad del equipo. Muchas gracias también a Eloy por estar siempre pendiente."</blockquote>
-    <div class="who">Cliente verificado · Google</div>
+    <div class="who">Jaime Payeras Beledo · Google</div>
   </div>
   <div class="rcard">
     <div class="stars">★★★★★</div>
-    <blockquote>"Me llevan el mantenimiento de la comunidad y el servicio es de lujo, espectacular!"</blockquote>
-    <div class="who">Cliente verificado · Google</div>
+    <blockquote>"Los hemos contratado para la poda de un pino en una comunidad de vecinos y estamos encantados con la seriedad y la buena labor."</blockquote>
+    <div class="who">Jaime Moya Gómez · Google</div>
   </div>
   <div class="rcard">
     <div class="stars">★★★★★</div>
     <blockquote>"Empresa muy profesional, muy satisfecho con los trabajos realizados y encima super majos."</blockquote>
-    <div class="who">Cliente verificado · Google</div>
+    <div class="who">Berto Blesa · Google</div>
   </div>
   <div class="rcard">
     <div class="stars">★★★★★</div>
@@ -771,6 +834,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a href="https://www.google.com/maps/search/Garden+Solution+Mallorca" class="reviews-link reveal" target="_blank" rel="noopener">
   Ver todas las reseñas en Google →
 </a>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq">
+  <div class="wrap">
+    <div class="faq-head reveal">
+      <span class="eyebrow">Preguntas frecuentes</span>
+      <h2>Lo que suelen<br><span class="it">preguntarnos.</span></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          ¿Cuánto cuesta diseñar un jardín en Mallorca?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" hidden>
+          <p>El precio depende del tamaño del terreno, la complejidad del diseño y los materiales elegidos. Cada proyecto recibe un presupuesto personalizado tras la visita técnica, sin ningún compromiso.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          ¿Cuánto tiempo tarda en completarse un proyecto de paisajismo?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" hidden>
+          <p>Depende de la envergadura del proyecto. Un jardín residencial suele completarse en 2 a 6 semanas. Desde la visita inicial hasta la entrega, el equipo acompaña cada etapa del proceso.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          ¿Es posible crear un jardín sostenible en Mallorca?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" hidden>
+          <p>Sí. Con especies autóctonas resistentes a la sequía y sistemas de riego por goteo eficientes, se pueden mantener jardines bonitos con un consumo de agua y mantenimiento muy reducidos.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          ¿Ofrecéis servicio de mantenimiento tras el diseño?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" hidden>
+          <p>Sí. Además del diseño y la creación del jardín, existe un servicio de mantenimiento continuado —con visitas programadas, podas, riego y tratamientos— para que el jardín luzca siempre en su mejor versión.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -809,54 +920,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="fc-sub">Sin compromiso. Respuesta en menos de 24 h laborables.</div>
 
         <div class="field">
-          <label for="nombre">Nombre y apellidos</label>
-          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre">
-        </div>
-        <div class="field-row">
-          <div class="field">
-            <label for="telefono">Teléfono</label>
-            <input type="tel" id="telefono" name="telefono" placeholder="600 000 000">
-          </div>
-          <div class="field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="tu@email.com">
-          </div>
-        </div>
-        <div class="field-row">
-          <div class="field">
-            <label for="tipo">Tipo de propiedad</label>
-            <select id="tipo" name="tipo">
-              <option value="" disabled selected>Selecciona…</option>
-              <option>Villa</option>
-              <option>Finca</option>
-              <option>Casa con jardín</option>
-              <option>Comunidad de vecinos</option>
-              <option>Segunda residencia</option>
-              <option>Empresa</option>
-              <option>Otro</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="zona">Zona / municipio</label>
-            <input type="text" id="zona" name="zona" placeholder="Ej. Calvià, Pollença…">
-          </div>
+          <label for="nombre">Tu nombre</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Nombre y apellidos">
         </div>
         <div class="field">
-          <label for="superficie">Superficie aproximada del jardín</label>
-          <select id="superficie" name="superficie">
-            <option value="" disabled selected>Selecciona…</option>
-            <option>Menos de 500 m²</option>
-            <option>500 – 1.500 m²</option>
-            <option>1.500 – 3.000 m²</option>
-            <option>Más de 3.000 m²</option>
-            <option>No estoy seguro</option>
-          </select>
+          <label for="telefono">Tu teléfono</label>
+          <input type="tel" id="telefono" name="telefono" placeholder="600 000 000">
         </div>
         <div class="field">
-          <label for="mensaje">¿Qué necesitas? <span style="text-transform:none;font-weight:300;color:var(--gray-soft);">(opcional)</span></label>
-          <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos brevemente qué te preocupa de tu jardín…"></textarea>
+          <label for="email">Tu email</label>
+          <input type="email" id="email" name="email" placeholder="tu@email.com">
         </div>
-        <input type="checkbox" name="botcheck" style="display:none">
+        <div class="field">
+          <label for="mensaje">Tu mensaje <span style="text-transform:none;font-weight:300;color:var(--gray-soft);">(opcional)</span></label>
+          <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos qué necesitas para tu jardín…"></textarea>
+        </div>
+        name="botcheck" style="display:none">
         <button type="button" class="btn btn-gold submit" id="submitBtn">Solicitar presupuesto gratuito</button>
         <div class="legal">
           Al enviar aceptas la <a href="#">política de privacidad</a>. Tus datos solo se usan para responder a tu solicitud.
@@ -888,6 +967,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </footer>
 
 <script>
+
+
+  // ===== FAQ ACORDEÓN =====
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var expanded = this.getAttribute('aria-expanded') === 'true';
+      // Cerrar todos
+      document.querySelectorAll('.faq-q').forEach(function(b){
+        b.setAttribute('aria-expanded','false');
+        b.nextElementSibling.hidden = true;
+      });
+      // Abrir el pulsado si estaba cerrado
+      if(!expanded){
+        this.setAttribute('aria-expanded','true');
+        this.nextElementSibling.hidden = false;
+      }
+    });
+  });
 
   // ===== CONTADORES ANIMADOS =====
   (function(){
@@ -940,9 +1037,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   document.getElementById('submitBtn').addEventListener('click', async function() {
     var nombre = document.getElementById('nombre').value.trim();
     var tel    = document.getElementById('telefono').value.trim();
-    var tipo   = document.getElementById('tipo').value;
-    if (!nombre || !tel || !tipo) {
-      alert('Por favor, completa al menos nombre, teléfono y tipo de propiedad.');
+    if (!nombre || !tel) {
+      alert('Por favor, completa al menos nombre y teléfono.');
       return;
     }
     var btn = document.getElementById('submitBtn');
@@ -956,9 +1052,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       name:          nombre,
       phone:         tel,
       email:         document.getElementById('email').value.trim(),
-      property_type: document.getElementById('tipo').value,
-      zone:          document.getElementById('zona').value.trim(),
-      garden_size:   document.getElementById('superficie').value,
       message:       document.getElementById('mensaje').value.trim()
     };
 

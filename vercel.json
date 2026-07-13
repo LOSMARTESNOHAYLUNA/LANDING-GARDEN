@@ -2,17 +2,13 @@
   "cleanUrls": true,
   "rewrites": [
     { "source": "/en",          "destination": "/en.html" },
+    { "source": "/de",          "destination": "/de.html" },
     { "source": "/gracias",     "destination": "/gracias.html" },
     { "source": "/privacidad",  "destination": "/privacidad.html" },
     { "source": "/cookies",     "destination": "/cookies.html" },
     { "source": "/aviso-legal", "destination": "/aviso-legal.html" }
   ],
   "headers": [
-    {
-      "source": "/docs/(.*)",
-      "headers": [
-        { "key": "Content-Disposition", "value": "inline" }
-      ]
-    }
+    { "source": "/docs/(.*)", "headers": [{"key":"Content-Disposition","value":"inline"}] }
   ]
 }
