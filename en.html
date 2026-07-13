@@ -24,7 +24,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Premium garden maintenance in Mallorca · Garden Solution</title>
-<meta name="description" content="Professional garden maintenance for villas and country estates across Mallorca. In-house team specialised in Mediterranean gardens. Request a free quote.">
+<meta name="description" content="Garden design, creation and maintenance for villas and country estates across Mallorca. Specialists in Mediterranean landscaping. Request a free quote.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
@@ -455,6 +455,21 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; letter-
   .ctr:nth-last-child(-n+2) { border-bottom: none; }
 }
 @media (max-width: 400px) { .ctr .num { font-size: 42px; } }
+
+/* ===== PROYECTOS ===== */
+.proyectos { padding: 130px 0; background: var(--paper); }
+.proyectos-head { text-align: center; margin-bottom: 72px; }
+.proyectos-head h2 { font-size: clamp(34px, 4.5vw, 60px); color: var(--green); line-height: 1.02; }
+.proyectos-head h2 .it { font-style: italic; color: var(--gold); }
+.proyectos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+.proyecto { border-radius: 12px; overflow: hidden; border: 1px solid var(--line); transition: transform .3s ease, box-shadow .3s ease; }
+.proyecto:hover { transform: translateY(-4px); box-shadow: 0 16px 44px rgba(0,0,0,0.12); }
+.proyecto-img { aspect-ratio: 4/3; background-size: cover; background-position: center; background-color: var(--paper-warm); }
+.proyecto-info { background: var(--paper-soft); padding: 26px 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.proyecto-info h3 { font-family: 'Cormorant Garamond'; font-size: 21px; color: var(--green); margin: 0; line-height: 1.2; }
+.btn-dossier { font-family: 'Manrope'; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--gold); padding: 11px 20px; border-radius: 100px; text-decoration: none; white-space: nowrap; flex-shrink: 0; transition: background .25s ease, transform .25s ease; }
+.btn-dossier:hover { background: var(--gold-soft); transform: translateY(-1px); }
+@media (max-width: 720px) { .proyectos-grid { grid-template-columns: 1fr; } .proyectos { padding: 84px 0; } }
 </style>
 </head>
 <body>
@@ -483,16 +498,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ===== HERO ===== -->
 <section class="hero">
   <div class="hero-content">
-    <span class="eyebrow">Garden Maintenance · All of Mallorca</span>
+    <span class="eyebrow">Garden Design & Maintenance · Mallorca</span>
     <h1>
-      <span>Your garden, always</span>
-      <span>immaculate. <span class="it">Without</span></span>
-      <span class="it">a single thing to think about.</span>
+      <span>Your garden, designed</span>
+      <span>and cared for. <span class="it">Looking exactly</span></span>
+      <span class="it">as it should.</span>
     </h1>
     <p class="hero-sub">
-      Professional garden maintenance for villas and country estates across the island.
-      An in-house team specialised in Mediterranean gardens, with scheduled visits
-      throughout the year.
+      Garden design, creation and maintenance for villas and country estates across Mallorca.
+      An in-house team specialised in Mediterranean landscaping, from the initial project
+      to ongoing care throughout the year.
     </p>
     <div class="hero-actions">
       <a href="#contacto" class="btn btn-gold">Request a free quote</a>
@@ -508,15 +523,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap">
     <div class="reveal">
       <span class="eyebrow">Who it’s for</span>
-      <h2>For those who want<br>a perfect garden<br><span class="it">and nothing else to worry about.</span></h2>
+      <h2>We transform your garden.<br>And maintain it so it always<br><span class="it">looks its best.</span></h2>
       <p>
-        Caring for a garden in Mallorca takes time, judgement and a real knowledge of
-        the island’s climate. The idea is simple: a property that always looks its best,
-        with nothing for the owner to keep track of.
+        A well-designed and cared-for garden is more than a pleasure to look at: it increases
+        the value of the property, promotes wellbeing and reflects the character of the space.
+        In Mallorca, the Mediterranean climate demands real knowledge of species and timing.
       </p>
       <p>
-        An in-house team handles everything —scheduled visits, pruning, irrigation and
-        treatments— so the garden looks its best all year round.
+        The team handles everything: from the initial design and selection of species suited
+        to the Balearic climate, to scheduled maintenance visits throughout the year.
       </p>
     </div>
     <div class="perfiles reveal">
@@ -550,28 +565,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap">
     <div class="head reveal">
       <span class="eyebrow">How it works</span>
-      <h2>An ongoing service.<br><span class="it">No surprises.</span></h2>
+      <h2>From design to maintenance.<br><span class="it">One team, all the way.</span></h2>
     </div>
     <div class="pasos">
       <div class="paso reveal">
         <div class="step-num">PASO 01</div>
-        <h3>Site visit</h3>
-        <p>The team visits the property, listens to what’s needed and assesses the garden on site.</p>
+        <h3>Space analysis</h3>
+        <p>A visit to the property to assess the topography, sun orientation, soil type and the real needs of the garden.</p>
       </div>
       <div class="paso reveal">
         <div class="step-num">PASO 02</div>
-        <h3>Tailored plan</h3>
-        <p>A quote adapted to the space, the local climate and what each property genuinely needs.</p>
+        <h3>Design proposal</h3>
+        <p>A plan with structural elements, planting, functional zones and species selected for the Mediterranean climate of Mallorca.</p>
       </div>
       <div class="paso reveal">
         <div class="step-num">PASO 03</div>
-        <h3>Scheduled visits</h3>
-        <p>Ongoing maintenance all year: seasonal pruning, feeding, irrigation and green-waste clearing.</p>
+        <h3>Project execution</h3>
+        <p>Planting, irrigation installation, exterior lighting and finishing. All carried out by an in-house team using quality materials.</p>
       </div>
       <div class="paso reveal">
         <div class="step-num">PASO 04</div>
-        <h3>A garden well kept</h3>
-        <p>The property looks its best all year round, with nothing for the owner to keep track of.</p>
+        <h3>Ongoing maintenance</h3>
+        <p>Scheduled visits all year: seasonal pruning, feeding, irrigation, plant-health treatments and green-waste clearing.</p>
       </div>
     </div>
     <div class="como-cta reveal">
@@ -612,11 +627,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="img"></div>
   <div class="txt reveal">
     <span class="eyebrow">The expertise that makes the difference</span>
-    <h2>Specialists in <span class="it">Mediterranean gardens.</span></h2>
+    <h2>Specialists in <span class="it">Mediterranean landscaping.</span></h2>
     <p>
-      Every project favours Mediterranean species that withstand heat and drought
-      —olive trees, lavender, bougainvillea, rosemary, palms— for a garden that is
-      both beautiful and easy to maintain.
+      Every project starts with a site analysis and a personalised design. Gardens can be Mediterranean,
+      tropical, zen or minimalist — always with species suited to the Balearic climate:
+      olive trees, lavender, bougainvillea, rosemary and palms for a beautiful, low-maintenance result.
     </p>
     <p>
       For coastal settings, the design uses windbreak hedges and salt-tolerant plants
@@ -669,6 +684,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+
+<!-- ===== PROJECTS ===== -->
+<section class="proyectos">
+  <div class="wrap">
+    <div class="proyectos-head reveal">
+      <span class="eyebrow">Our projects</span>
+      <h2>Every garden,<br><span class="it">a unique story.</span></h2>
+    </div>
+    <div class="proyectos-grid">
+      <div class="proyecto reveal">
+        <div class="proyecto-img" style="background-image:url('img/proyectos/proyecto-can-elio.jpg')"></div>
+        <div class="proyecto-info">
+          <h3>Can Elio Valldemossa</h3>
+          <a href="docs/260325_Can-Elio_Garden_compressed.pdf" class="btn-dossier" target="_blank" rel="noopener">View dossier</a>
+        </div>
+      </div>
+      <div class="proyecto reveal">
+        <div class="proyecto-img" style="background-image:url('img/proyectos/proyecto-sometimes.jpg')"></div>
+        <div class="proyecto-info">
+          <h3>Paraíso Sometimes</h3>
+          <a href="docs/DOSSIER_PARAISO_SOMETIMES-01_compressed.pdf" class="btn-dossier" target="_blank" rel="noopener">View dossier</a>
+        </div>
+      </div>
+      <div class="proyecto reveal">
+        <div class="proyecto-img" style="background-image:url('img/proyectos/proyecto-marratxi.jpg')"></div>
+        <div class="proyecto-info">
+          <h3>Marratxí Project</h3>
+          <a href="docs/260306_Maria_Jose_Garden_compressed.pdf" class="btn-dossier" target="_blank" rel="noopener">View dossier</a>
+        </div>
+      </div>
+      <div class="proyecto reveal">
+        <div class="proyecto-img" style="background-image:url('img/proyectos/proyecto-sa-llimonera.jpg')"></div>
+        <div class="proyecto-info">
+          <h3>Sa Llimonera Project</h3>
+          <a href="docs/DOSSIER_LORENA_LLIMONERA_9_compressed.pdf" class="btn-dossier" target="_blank" rel="noopener">View dossier</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ===== CONFIANZA ===== -->
 <section class="confianza">

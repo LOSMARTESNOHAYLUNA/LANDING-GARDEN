@@ -24,7 +24,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mantenimiento de jardín premium en Mallorca · Garden Solution</title>
-<meta name="description" content="Mantenimiento profesional de jardines para villas y fincas en toda Mallorca. Equipo propio especializado en jardín mediterráneo. Solicita presupuesto gratuito.">
+<meta name="description" content="Diseño, creación y mantenimiento de jardines en Mallorca para villas y fincas. Especialistas en paisajismo mediterráneo. Solicita presupuesto gratuito.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
@@ -454,6 +454,21 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; letter-
   .ctr:nth-last-child(-n+2) { border-bottom: none; }
 }
 @media (max-width: 400px) { .ctr .num { font-size: 42px; } }
+
+/* ===== PROYECTOS ===== */
+.proyectos { padding: 130px 0; background: var(--paper); }
+.proyectos-head { text-align: center; margin-bottom: 72px; }
+.proyectos-head h2 { font-size: clamp(34px, 4.5vw, 60px); color: var(--green); line-height: 1.02; }
+.proyectos-head h2 .it { font-style: italic; color: var(--gold); }
+.proyectos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+.proyecto { border-radius: 12px; overflow: hidden; border: 1px solid var(--line); transition: transform .3s ease, box-shadow .3s ease; }
+.proyecto:hover { transform: translateY(-4px); box-shadow: 0 16px 44px rgba(0,0,0,0.12); }
+.proyecto-img { aspect-ratio: 4/3; background-size: cover; background-position: center; background-color: var(--paper-warm); }
+.proyecto-info { background: var(--paper-soft); padding: 26px 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.proyecto-info h3 { font-family: 'Cormorant Garamond'; font-size: 21px; color: var(--green); margin: 0; line-height: 1.2; }
+.btn-dossier { font-family: 'Manrope'; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--gold); padding: 11px 20px; border-radius: 100px; text-decoration: none; white-space: nowrap; flex-shrink: 0; transition: background .25s ease, transform .25s ease; }
+.btn-dossier:hover { background: var(--gold-soft); transform: translateY(-1px); }
+@media (max-width: 720px) { .proyectos-grid { grid-template-columns: 1fr; } .proyectos { padding: 84px 0; } }
 </style>
 </head>
 <body>
@@ -482,16 +497,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ===== HERO ===== -->
 <section class="hero">
   <div class="hero-content">
-    <span class="eyebrow">Mantenimiento de jardín · Toda Mallorca</span>
+    <span class="eyebrow">Diseño y mantenimiento de jardines · Mallorca</span>
     <h1>
-      <span>Tu jardín, siempre</span>
-      <span>impecable. <span class="it">Sin que</span></span>
-      <span class="it">tengas que pensar en él.</span>
+      <span>Tu jardín, diseñado</span>
+      <span>y cuidado. <span class="it">Para que</span></span>
+      <span class="it">luzca lo que merece.</span>
     </h1>
     <p class="hero-sub">
-      Mantenimiento profesional de jardines para villas y fincas en toda la isla.
-      Equipo propio especializado en jardín mediterráneo, con visitas programadas
-      durante todo el año.
+      Diseño, creación y mantenimiento de jardines para villas y fincas en toda Mallorca.
+      Equipo propio especializado en paisajismo mediterráneo, desde el proyecto inicial
+      hasta el cuidado continuo.
     </p>
     <div class="hero-actions">
       <a href="#contacto" class="btn btn-gold">Solicita presupuesto gratuito</a>
@@ -507,15 +522,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap">
     <div class="reveal">
       <span class="eyebrow">Para quién trabajamos</span>
-      <h2>Para quien quiere<br>un jardín perfecto<br><span class="it">y olvidarse del resto.</span></h2>
+      <h2>Transformamos tu jardín.<br>Y lo cuidamos para que<br><span class="it">siempre luzca así.</span></h2>
       <p>
-        Cuidar un jardín en Mallorca lleva tiempo, criterio y conocimiento del clima
-        de la isla. La idea es sencilla: que la propiedad esté siempre cuidada sin
-        que el propietario tenga que estar pendiente de nada.
+        Un jardín bien diseñado y cuidado no solo es un placer para la vista: incrementa
+        el valor de la propiedad, promueve el bienestar y refleja la personalidad del espacio.
+        En Mallorca, el clima mediterráneo exige criterio en la elección de especies y en los tiempos de intervención.
       </p>
       <p>
-        Un equipo propio se encarga de todo —visitas programadas, podas, riego y
-        tratamientos— para que el jardín luzca su mejor versión durante todo el año.
+        El equipo se ocupa de todo: desde el diseño inicial y la selección de especies
+        adaptadas al clima balear, hasta las visitas programadas de mantenimiento durante todo el año.
       </p>
     </div>
     <div class="perfiles reveal">
@@ -549,28 +564,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap">
     <div class="head reveal">
       <span class="eyebrow">Cómo trabajamos</span>
-      <h2>Un servicio continuado.<br><span class="it">Sin sorpresas.</span></h2>
+      <h2>Del diseño al mantenimiento.<br><span class="it">Un solo equipo.</span></h2>
     </div>
     <div class="pasos">
       <div class="paso reveal">
         <div class="step-num">PASO 01</div>
-        <h3>Visita técnica</h3>
-        <p>El equipo se acerca a la propiedad, escucha qué necesita y evalúa el estado del jardín sobre el terreno.</p>
+        <h3>Análisis del espacio</h3>
+        <p>Visita a la propiedad para evaluar la topografía, orientación solar, tipo de suelo y las necesidades reales del jardín.</p>
       </div>
       <div class="paso reveal">
         <div class="step-num">PASO 02</div>
-        <h3>Plan a medida</h3>
-        <p>Un presupuesto adaptado al espacio, al clima de la zona y a lo que realmente pide cada propiedad.</p>
+        <h3>Propuesta de diseño</h3>
+        <p>Un plan con elementos estructurales, vegetación, zonas funcionales y selección de especies adaptadas al clima mediterráneo de Mallorca.</p>
       </div>
       <div class="paso reveal">
         <div class="step-num">PASO 03</div>
-        <h3>Visitas programadas</h3>
-        <p>Mantenimiento continuado todo el año: podas estacionales, abonado, riego y limpieza de restos vegetales.</p>
+        <h3>Ejecución del proyecto</h3>
+        <p>Plantación, instalación de riego, iluminación exterior y acabados. Todo ejecutado con equipo propio y materiales de calidad.</p>
       </div>
       <div class="paso reveal">
         <div class="step-num">PASO 04</div>
-        <h3>Jardín cuidado</h3>
-        <p>La propiedad luce su mejor versión durante todo el año, sin que el propietario tenga que estar pendiente.</p>
+        <h3>Mantenimiento continuo</h3>
+        <p>Visitas programadas todo el año: podas estacionales, abonado, riego, fitosanitarios y limpieza de restos vegetales.</p>
       </div>
     </div>
     <div class="como-cta reveal">
@@ -611,11 +626,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="img"></div>
   <div class="txt reveal">
     <span class="eyebrow">El criterio que marca la diferencia</span>
-    <h2>Especialistas en <span class="it">jardín mediterráneo.</span></h2>
+    <h2>Especialistas en <span class="it">paisajismo mediterráneo.</span></h2>
     <p>
-      En cada proyecto se recomiendan especies mediterráneas resistentes al calor
-      y a la sequía —olivos, lavandas, buganvillas, romeros, palmeras— que garantizan
-      un jardín bonito y fácil de mantener.
+      Cada proyecto parte de un análisis del terreno y un diseño personalizado. Se crean jardines mediterráneos,
+      tropicales, zen o minimalistas, siempre con especies adaptadas al clima balear —olivos, lavandas,
+      buganvillas, romeros, palmeras— que garantizan un jardín bonito y fácil de mantener.
     </p>
     <p>
       Y para el entorno costero, se diseña con setos cortavientos y plantas adaptadas
@@ -668,6 +683,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+
+<!-- ===== PROYECTOS ===== -->
+<section class="proyectos">
+  <div class="wrap">
+    <div class="proyectos-head reveal">
+      <span class="eyebrow">Proyectos realizados</span>
+      <h2>Cada jardín,<br><span class="it">una historia única.</span></h2>
+    </div>
+    <div class="proyectos-grid">
+      <div class="proyecto reveal">
+        <div class="proyecto-img" style="background-image:url('img/proyectos/proyecto-can-elio.jpg')"></div>
+        <div class="proyecto-info">
+          <h3>Can Elio Valldemossa</h3>
+          <a href="docs/260325_Can-Elio_Garden_compressed.pdf" class="btn-dossier" target="_blank" rel="noopener">Ver dossier</a>
+        </div>
+      </div>
+      <div class="proyecto reveal">
+        <div class="proyecto-img" style="background-image:url('img/proyectos/proyecto-sometimes.jpg')"></div>
+        <div class="proyecto-info">
+          <h3>Paraíso Sometimes</h3>
+          <a href="docs/DOSSIER_PARAISO_SOMETIMES-01_compressed.pdf" class="btn-dossier" target="_blank" rel="noopener">Ver dossier</a>
+        </div>
+      </div>
+      <div class="proyecto reveal">
+        <div class="proyecto-img" style="background-image:url('img/proyectos/proyecto-marratxi.jpg')"></div>
+        <div class="proyecto-info">
+          <h3>Proyecto Marratxí</h3>
+          <a href="docs/260306_Maria_Jose_Garden_compressed.pdf" class="btn-dossier" target="_blank" rel="noopener">Ver dossier</a>
+        </div>
+      </div>
+      <div class="proyecto reveal">
+        <div class="proyecto-img" style="background-image:url('img/proyectos/proyecto-sa-llimonera.jpg')"></div>
+        <div class="proyecto-info">
+          <h3>Proyecto Sa Llimonera</h3>
+          <a href="docs/DOSSIER_LORENA_LLIMONERA_9_compressed.pdf" class="btn-dossier" target="_blank" rel="noopener">Ver dossier</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ===== CONFIANZA ===== -->
 <section class="confianza">
